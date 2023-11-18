@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html, body, #root {
+        height: 100vh;
+    }
+
+    #root {
+        background: url(./assets/top-image.svg) no-repeat top, url(./assets/bottom-image.svg) no-repeat bottom;
+        background-size: 100% auto;
+
+        display: flex;
+        place-items: center;
+        justify-content: center;
+    }
+}
