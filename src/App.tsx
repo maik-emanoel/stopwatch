@@ -3,7 +3,7 @@ import { Timer } from "./components/Timer";
 
 export function App() {
   return (
-    <main >
+    <main className="flex items-center">
       <Timer />
       <SideImage />
     </main>
