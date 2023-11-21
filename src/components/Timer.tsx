@@ -1,5 +1,6 @@
 import { ArrowClockwise, Pause, Play } from "@phosphor-icons/react";
 import { useState, useEffect, useRef } from "react";
+import { Button } from "./Button";
 
 export function Timer() {
   const [counter, setCounter] = useState(0);
@@ -12,8 +13,8 @@ export function Timer() {
   }
 
   function handleReset() {
-    setIsRunning(false)
-    setCounter(0)
+    setIsRunning(false);
+    setCounter(0);
   }
 
   useEffect(() => {
@@ -37,21 +38,28 @@ export function Timer() {
   const milliseconds = counter % 1000;
 
   return (
-    <div>
-      <h1>Stopwatch</h1>
-      <div>
+    <div className="max-w-[400px] w-full">
+      <h1 className="text-purple text-titleClamp font-bold uppercase tracking-[3.78px] ml-1">
+        Stopwatch
+      </h1>
+      <div className="text-gray text-counterClamp tracking-[3.78px] w-fit">
         <span>{minutes.toString().padStart(2, "0")}:</span>
         <span>{seconds.toString().padStart(2, "0")}.</span>
         <span>{milliseconds.toString().padStart(3, "0")}</span>
       </div>
 
-      <div>
-        <button onClick={handleStartAndPause}>
-          {isRunning ? <Pause /> : <Play />}
-        </button>
-        <button onClick={handleReset}>
-          <ArrowClockwise />
-        </button>
+      <div className="mt-8 ml-1 flex items-center gap-3">
+        <Button onClick={handleStartAndPause}>
+          {isRunning ? (
+            <Pause size={18} weight="bold" />
+          ) : (
+            <Play size={18} weight="bold" />
+          )}
+        </Button>
+        
+        <Button onClick={handleReset}>
+          <ArrowClockwise size={18} weight="bold" />
+        </Button>
       </div>
     </div>
   );
