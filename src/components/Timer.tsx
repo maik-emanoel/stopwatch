@@ -49,15 +49,18 @@ export function Timer() {
       </div>
 
       <div className="mt-8 ml-1 flex items-center gap-3">
-        <Button onClick={handleStartAndPause}>
+        <Button
+          onClick={handleStartAndPause}
+          tooltipName={isRunning ? "Pause" : "Play"}
+        >
           {isRunning ? (
             <Pause size={18} weight="bold" />
           ) : (
             <Play size={18} weight="bold" />
           )}
         </Button>
-        
-        <Button onClick={handleReset}>
+
+        <Button onClick={handleReset} tooltipName="Reset">
           <ArrowClockwise size={18} weight="bold" />
         </Button>
       </div>
