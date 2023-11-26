@@ -6,11 +6,12 @@
     html, body, #root {
         height: 100vh;
         font-family: 'Poppins', sans-serif;
+        -webkit-tap-highlight-color: transparent;
     }
 
     #root {
         background: url(./assets/top-image.svg) no-repeat top, url(./assets/bottom-image.svg) no-repeat bottom;
-        background-size: 100% auto;
+        background-size: 150% auto;
 
         display: flex;
         place-items: center;
