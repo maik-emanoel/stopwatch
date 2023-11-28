@@ -1,9 +1,22 @@
-import { ArrowClockwise, Pause, Play } from "@phosphor-icons/react";
+import {
+  ArrowClockwise,
+  FlagPennant,
+  IconContext,
+  Pause,
+  Play,
+} from "@phosphor-icons/react";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "./Button";
 
-export function Timer() {
-  const [counter, setCounter] = useState(0);
+interface TimerProps {
+  counter: number;
+  setCounter: React.Dispatch<React.SetStateAction<number>>;
+  setSplits: React.Dispatch<React.SetStateAction<number[]>>;
+}
+
+export function Timer(props: TimerProps) {
+  const { counter, setCounter, setSplits } = props;
+
   const [isRunning, setIsRunning] = useState(false);
   const lastUpdateRef = useRef(Date.now());
 
@@ -15,6 +28,7 @@ export function Timer() {
   function handleReset() {
     setIsRunning(false);
     setCounter(0);
+    setSplits([])
   }
 
   useEffect(() => {
@@ -31,7 +45,7 @@ export function Timer() {
       // If false pause counter
       return () => clearInterval(intervalId);
     }
-  }, [isRunning]);
+  }, [isRunning, setCounter]);
 
   const minutes = Math.floor(counter / (1000 * 60));
   const seconds = Math.floor((counter / 1000) % 60);
@@ -48,22 +62,34 @@ export function Timer() {
         <span>{milliseconds.toString().padStart(3, "0")}</span>
       </div>
 
-      <div className="mt-8 ml-1 flex items-center gap-3">
-        <Button
-          onClick={handleStartAndPause}
-          tooltipName={isRunning ? "Pause" : "Play"}
-        >
-          {isRunning ? (
-            <Pause size={18} weight="bold" />
-          ) : (
-            <Play size={18} weight="bold" />
-          )}
-        </Button>
+      <IconContext.Provider
+        value={{
+          size: 18,
+          weight: "bold",
+        }}
+      >
+        <div className="mt-8 ml-1 flex items-center gap-3">
+          <Button
+            onClick={handleStartAndPause}
+            tooltipName={isRunning ? "Pause" : "Play"}
+          >
+            {isRunning ? <Pause /> : <Play />}
+          </Button>
 
-        <Button onClick={handleReset} tooltipName="Reset">
-          <ArrowClockwise size={18} weight="bold" />
-        </Button>
-      </div>
+          <Button onClick={handleReset} tooltipName="Reset">
+            <ArrowClockwise />
+          </Button>
+
+          <Button
+            tooltipName="Split"
+            onClick={() => {
+              setSplits((prevState) => [...prevState, counter]);
+            }}
+          >
+            <FlagPennant />
+          </Button>
+        </div>
+      </IconContext.Provider>
     </div>
   );
 }
