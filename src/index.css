@@ -17,4 +17,17 @@
         place-items: center;
         justify-content: center;
     }
+
+    .splitsScroll::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .splitsScroll::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .splitsScroll::-webkit-scrollbar-thumb {
+        background: #ebeef0;
+        border-radius: 999px;
+    }
 }
