@@ -28,7 +28,7 @@ export function Timer(props: TimerProps) {
   function handleReset() {
     setIsRunning(false);
     setCounter(0);
-    setSplits([])
+    setSplits([]);
   }
 
   useEffect(() => {
@@ -80,14 +80,16 @@ export function Timer(props: TimerProps) {
             <ArrowClockwise />
           </Button>
 
-          <Button
-            tooltipName="Split"
-            onClick={() => {
-              setSplits((prevState) => [...prevState, counter]);
-            }}
-          >
-            <FlagPennant />
-          </Button>
+          {isRunning && (
+            <Button
+              tooltipName="Split"
+              onClick={() => {
+                setSplits((prevState) => [...prevState, counter]);
+              }}
+            >
+              <FlagPennant />
+            </Button>
+          )}
         </div>
       </IconContext.Provider>
     </div>
