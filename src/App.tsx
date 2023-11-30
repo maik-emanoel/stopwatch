@@ -8,9 +8,9 @@ export function App() {
   const [splits, setSplits] = useState<number[]>([]);
 
   return (
-    <main className="flex justify-center items-center gap-16 max-w-[900px] w-full px-5">
+    <main className="flex justify-center items-center gap-16 max-w-[900px] w-full px-5 md:flex-wrap">
       <Timer counter={counter} setCounter={setCounter} setSplits={setSplits} />
-      <div className="flex flex-col max-w-[400px] max-h-[300px] w-full">
+      <div className="flex flex-col max-w-[400px] max-h-[300px] w-full md:h-[300px]">
         {splits.length > 0 ? <Splits splits={splits} /> : <SideImage />}
       </div>
     </main>
