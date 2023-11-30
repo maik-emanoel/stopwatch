@@ -12,7 +12,7 @@ export function Splits(props: SplitsProps) {
     if (lastSplitRef.current) {
       lastSplitRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  });
+  }, [splits]);
 
   const splitsFormatted = splits.map((split) => {
     const minutes = Math.floor(split / (1000 * 60));
@@ -26,9 +26,9 @@ export function Splits(props: SplitsProps) {
 
   return (
     <div
-      className="w-full h-full border border-zinc-300 overflow-y-auto rounded-lg backdrop-blur-md splitsScroll"
+      className="w-full border border-zinc-300 overflow-y-auto rounded-lg backdrop-blur-md splitsScroll"
       style={{
-        boxShadow: `10px 9px 40px -25px #DDDBF2`,
+        boxShadow: `10px 9px 40px -25px #DDDBF2`
       }}
     >
       <table className="w-full flex flex-col">
@@ -43,7 +43,7 @@ export function Splits(props: SplitsProps) {
           {splitsFormatted.map((split, index) => {
             return (
               <tr
-                className="w-full flex text-center"
+                className="w-full flex text-center animate-appear"
                 key={index + 1}
                 ref={index === splits.length - 1 ? lastSplitRef : null}
               >
