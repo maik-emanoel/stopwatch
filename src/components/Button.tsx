@@ -25,7 +25,7 @@ export function Button({ children, tooltipName, ...rest }: ButtonProps) {
     >
       <button
         data-istouchsupported={isTouchSupported}
-        className="w-9 h-9 grid place-items-center rounded-full bg-purple transition-all duration-300 active:scale-90 active:brightness-75 data-[istouchsupported=false]:hover:brightness-110"
+        className="w-9 h-9 grid place-items-center rounded-full bg-purple transition-all duration-300 active:scale-90 active:brightness-75"
         {...rest}
       >
         {children}
