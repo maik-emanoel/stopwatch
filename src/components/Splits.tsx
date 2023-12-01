@@ -26,9 +26,9 @@ export function Splits(props: SplitsProps) {
 
   return (
     <div
-      className="w-full border border-zinc-300 overflow-y-auto rounded-lg backdrop-blur-md splitsScroll"
+      className="w-full h-full max-h-[300px] border border-zinc-300 overflow-y-auto rounded-lg backdrop-blur-md bg-white/80 splitsScroll"
       style={{
-        boxShadow: `10px 9px 40px -25px #DDDBF2`
+        boxShadow: `10px 9px 40px -25px #DDDBF2`,
       }}
     >
       <table className="w-full flex flex-col">
