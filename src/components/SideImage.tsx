@@ -17,9 +17,9 @@ export function SideImage() {
 
   return (
     <div
-      className="relative md:max-w-[300px]"
+      className="relative h-full select-none md:max-w-[300px]"
       ref={imageRef}
-      style={{ transformStyle: "preserve-3d" }}
+      style={{ transformStyle: "preserve-3d", backfaceVisibility: "hidden" }}
     >
       <img
         src={spaceBackground}
@@ -30,7 +30,7 @@ export function SideImage() {
         src={rocket}
         alt="Imagem de um foguete em 2D"
         className="absolute h-[85%] top-0 left-[32%]"
-        style={{ transform: "translateZ(50px)" }}
+        style={{ transform: "translateZ(50px)", backfaceVisibility: "hidden" }}
       />
     </div>
   );
