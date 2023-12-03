@@ -8,6 +8,7 @@ import "swiper/css/effect-flip";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper/core";
 import { EffectFlip } from "swiper/modules";
+import { ThemeSwitch } from "./components/ThemeSwitch";
 
 SwiperCore.use([EffectFlip]);
 
@@ -51,6 +52,8 @@ export function App() {
           )}
         </Swiper>
       </div>
+
+      <ThemeSwitch />
     </main>
   );
 }
