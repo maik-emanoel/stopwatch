@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useThemeContext } from "../context/ThemeContext";
 
 interface SplitsProps {
   splits: number[];
@@ -7,6 +8,8 @@ interface SplitsProps {
 export function Splits(props: SplitsProps) {
   const { splits } = props;
   const lastSplitRef = useRef<null | HTMLTableRowElement>(null);
+
+  const { theme } = useThemeContext();
 
   useEffect(() => {
     if (lastSplitRef.current) {
@@ -26,20 +29,22 @@ export function Splits(props: SplitsProps) {
 
   return (
     <div
-      className="w-full h-full max-h-[300px] border border-zinc-300 overflow-y-auto rounded-lg backdrop-blur-md bg-white/80 splitsScroll"
+      className="w-full h-full max-h-[300px] border border-zinc-300 overflow-y-auto rounded-lg bg-white/80 splitsScroll dark:bg-bodyDark dark:border-zinc-500"
       style={{
-        boxShadow: `10px 9px 40px -25px #DDDBF2`,
+        boxShadow: `10px 9px 40px -25px ${
+          theme === 'dark' ? "#00000040" : "#DDDBF2"
+        }`,
       }}
     >
       <table className="w-full flex flex-col">
         <thead className="sticky top-0">
-          <tr className="bg-white w-full flex py-2 border-b border-zinc-300 text-zinc-700">
+          <tr className="bg-white w-full flex py-2 border-b border-zinc-300 text-zinc-700 dark:bg-bodyDark dark:text-zinc-100 dark:border-zinc-500">
             <th className="block w-3/4">Lap</th>
             <th className="block w-full">Time</th>
           </tr>
         </thead>
 
-        <tbody className="text-gray">
+        <tbody className="text-gray dark:text-zinc-200">
           {splitsFormatted.map((split, index) => {
             return (
               <tr
