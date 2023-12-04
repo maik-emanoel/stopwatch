@@ -9,6 +9,10 @@
         -webkit-tap-highlight-color: transparent;
     }
 
+    html.dark #root {
+        background: #292738;
+    }
+
     #root {
         background: url(./assets/top-image.svg) no-repeat top, url(./assets/bottom-image.svg) no-repeat bottom;
         background-size: 100% auto;
