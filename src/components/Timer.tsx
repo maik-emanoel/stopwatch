@@ -56,7 +56,7 @@ export function Timer(props: TimerProps) {
       <h1 className="text-purple text-titleClamp font-bold uppercase tracking-[3.78px] ml-1">
         Stopwatch
       </h1>
-      <div className="text-gray text-counterClamp tracking-[3.78px] w-fit" translate="no">
+      <div className="text-gray text-counterClamp tracking-[3.78px] w-fit dark:text-zinc-100" translate="no">
         <span>{minutes.toString().padStart(2, "0")}:</span>
         <span>{seconds.toString().padStart(2, "0")}.</span>
         <span>{milliseconds.toString().padStart(3, "0")}</span>
