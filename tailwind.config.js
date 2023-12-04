@@ -9,7 +9,8 @@ export default {
     extend: {
       colors: {
         purple: '#6C63FF',
-        gray: '#4D4C59'
+        gray: '#4D4C59',
+        bodyDark: '#292738'
       },
       fontSize: {
         titleClamp: 'clamp(1.5rem, 1.2857rem + 1.0714vw, 2.25rem)',
