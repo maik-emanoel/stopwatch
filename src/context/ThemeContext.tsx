@@ -1,9 +1,16 @@
-import { createContext, useContext, ReactNode, useState } from "react";
+import {
+  createContext,
+  useContext,
+  ReactNode,
+  useState,
+  useEffect,
+} from "react";
+import { loadTheme, saveTheme } from "../utils/themeUtils";
 
 type ThemeContext = {
   theme: string;
   setTheme: React.Dispatch<React.SetStateAction<Theme>>;
-  handleToggleTheme: () => void
+  handleToggleTheme: () => void;
 };
 
 export const ThemeContext = createContext<ThemeContext | undefined>(undefined);
@@ -12,10 +19,10 @@ type ThemeProviderProps = {
   children: ReactNode;
 };
 
-type Theme = "light" | "dark";
+export type Theme = "light" | "dark";
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>(loadTheme());
 
   function handleToggleTheme() {
     const html = document.querySelector("html");
@@ -27,6 +34,18 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       html?.classList.remove("dark");
     }
   }
+
+  useEffect(() => {
+    saveTheme(theme);
+
+    const html = document.querySelector("html");
+
+    if (theme === "light") {
+      html?.classList.remove("dark");
+    } else {
+      html?.classList.add("dark");
+    }
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, handleToggleTheme, setTheme }}>
