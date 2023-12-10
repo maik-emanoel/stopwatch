@@ -17,7 +17,7 @@ export function SideImage() {
 
   return (
     <div
-      className="relative h-full select-none md:max-w-[300px]"
+      className="relative h-full select-none md:max-w-[300px] sm:mx-auto"
       ref={imageRef}
       style={{
         transformStyle: "preserve-3d",
