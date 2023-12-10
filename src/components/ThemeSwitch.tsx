@@ -7,7 +7,7 @@ export function ThemeSwitch() {
   const { theme, handleToggleTheme } = useThemeContext();
 
   return (
-    <div className="absolute top-5 right-7 select-none">
+    <div className="absolute top-5 right-7 select-none sm:right-4">
       <div
         className="rounded-full w-14 h-5 relative bg-zinc-200 dark:bg-white"
         style={{
