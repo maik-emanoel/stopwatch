@@ -38,7 +38,7 @@ export function App() {
 
   return (
     <>
-      <main className="flex justify-center items-center gap-16 max-w-[900px] w-full px-5 z-10 md:flex-wrap">
+      <main className="flex justify-between items-center gap-y-16 max-w-[900px] w-full px-5 z-10 md:flex-wrap md:justify-center">
         <Timer
           counter={counter}
           setCounter={setCounter}
