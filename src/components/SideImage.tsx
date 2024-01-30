@@ -21,14 +21,17 @@ export function SideImage() {
       ref={imageRef}
       style={{
         transformStyle: "preserve-3d",
-        backfaceVisibility: "hidden",
-        WebkitBackfaceVisibility: "hidden",
       }}
     >
       <img
         src={spaceBackground}
         alt="Imagem de plano de fundo do espaço"
-        style={{ transform: "perspective(500px)" }}
+        style={{
+          transform: "perspective(500px)",
+          backfaceVisibility: "hidden",
+          MozBackfaceVisibility: "hidden",
+          WebkitBackfaceVisibility: "hidden",
+        }}
       />
       <img
         src={rocket}
